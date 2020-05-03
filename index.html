@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  	<title>Шаблоны проектирования</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  	<link href="css/bootstrap.min.css" rel="stylesheet">
+  	<link href="css/sh_style.css" rel="stylesheet">
+  	<script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
+  	<script type="text/javascript" src="js/bootstrap.min.js"></script>
+  	<script type="text/javascript" src="js/sh_main.min.js"></script>
+  	<script type="text/javascript" src="js/sh_php.min.js"></script>
+  </head>
+  <body style="min-height: 100vh;display: flex;flex-direction: column;">
+  
+      <div class="modal fade" id="editPost" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+          <div class="modal-dialog modal-lg">
+              <div class="modal-content">
+                  <div class="modal-header">
+                      <h4 class="modal-title" id="myLargeModalLabel">Изменить шаблон</h4>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">×</span>
+                      </button>
+                  </div>
+                  <div class="modal-body">
+                      <form id="">
+                          <div class="modal-body">
+                              <input type="hidden" name="post_id" id="post_id_edit" required="required">
+                              <input type="hidden" name="action" value="editPost">
+                              <div class="form-group">
+                                  <label class="label" for="title">Наименование</label>
+                                  <input type="text" required="required" name="title" class="form-control" id="edit_title">
+                              </div>
+  
+                              <div class="form-group">
+                                  <label class="label" for="path">Путь</label>
+                                  <input type="text" required="required" name="path" class="form-control" id="edit_path">
+                              </div>
+  
+                              <div class="form-group">
+                                  <label class="label" for="description">Описание</label>
+                                  <textarea required="required" style="height: 300px;" name="description" class="form-control" id="edit_description"></textarea>
+                              </div>
+  
+                              <div class="form-group">
+                                  <label class="label" for="code">Код</label>
+                                  <textarea required="required" style="height: 300px;" name="code" class="form-control" id="edit_code"></textarea>
+                              </div>
+  
+                          </div>
+                          <div class="modal-footer">
+                              <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрыть</button>
+                              <button type="submit" class="btn btn-primary">Применить</button>
+                          </div>
+                      </form>
+                  </div>
+              </div>
+          </div>
+      </div>
+  
+      <div class="modal fade" id="addPost" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+          <div class="modal-dialog modal-lg">
+              <div class="modal-content">
+                  <div class="modal-header">
+                      <h4 class="modal-title" id="myLargeModalLabel">Добавить шаблон</h4>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">×</span>
+                      </button>
+                  </div>
+                  <div class="modal-body">
+                      <form id="">
+                          <div class="modal-body">
+                              <input type="hidden" name="action" value="addPost">
+                              <div class="form-group">
+                                  <label for="category_id">Категория шаблона</label>
+                                  <select class="form-control category_id" name="category_id" id="category_id">
+                                  </select>
+                              </div>
+                              <div class="form-group">
+                                  <label class="label" for="title">Наименование</label>
+                                  <input type="text" required="required" name="title" class="form-control" id="title">
+                              </div>
+  
+                              <div class="form-group">
+                                  <label class="label" for="path">Путь</label>
+                                  <input type="text" required="required" name="path" class="form-control" id="path">
+                              </div>
+  
+                              <div class="form-group">
+                                  <label class="label" for="description">Описание</label>
+                                  <textarea required="required" style="height: 300px;" name="description" class="form-control" id="description"></textarea>
+                              </div>
+  
+                              <div class="form-group">
+                                  <label class="label" for="code">Код</label>
+                                  <textarea required="required" style="height: 300px;" name="code" class="form-control" id="code"></textarea>
+                              </div>
+                          </div>
+                          <div class="modal-footer">
+                              <button type="button" class="btn btn-secondary" data-dismiss="modal">Отмена</button>
+                              <button type="submit" class="btn btn-primary">Добавить</button>
+                          </div>
+                      </form>
+                  </div>
+              </div>
+          </div>
+      </div>
+  
+      <div class="modal fade" id="deletePost" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+          <div class="modal-dialog modal-lg">
+              <div class="modal-content">
+                  <div class="modal-header">
+                      <h4 class="modal-title" id="myLargeModalLabel">Удалить шаблон</h4>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">×</span>
+                      </button>
+                  </div>
+                  <div class="modal-body">
+                      <form id="">
+                          <div class="modal-body">
+                              <input type="hidden" name="action" value="deletePost">
+                              <input type="hidden" name="post_id" id="post_id" required="required"> Вы действительно хотите удалить шаблон?
+                          </div>
+                          <div class="modal-footer">
+                              <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрыть</button>
+                              <button type="submit" class="btn btn-primary">Удалить</button>
+                          </div>
+                      </form>
+                  </div>
+              </div>
+          </div>
+      </div>
+  
+      <div class="modal fade" id="addCategory" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+          <div class="modal-dialog modal-lg">
+              <div class="modal-content">
+                  <div class="modal-header">
+                      <h4 class="modal-title" id="myLargeModalLabel">Новая категория</h4>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">×</span>
+                      </button>
+                  </div>
+                  <div class="modal-body">
+                      <form id="">
+                          <div class="modal-body">
+                              <input type="hidden" name="action" value="addCategory">
+                              <div class="form-group">
+                                  <label class="label" for="catrgoryName">Наименование</label>
+                                  <input type="text" required="required" name="catrgoryName" class="form-control" id="catrgoryName">
+                              </div>
+                          </div>
+                          <div class="modal-footer">
+                              <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрыть</button>
+                              <button type="submit" class="btn btn-primary">Добавить</button>
+                          </div>
+                      </form>
+                  </div>
+              </div>
+          </div>
+      </div>
+  
+      <div class="modal fade" id="deleteCategory" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+          <div class="modal-dialog modal-lg">
+              <div class="modal-content">
+                  <div class="modal-header">
+                      <h4 class="modal-title" id="myLargeModalLabel">Удалить категорию</h4>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">×</span>
+                      </button>
+                  </div>
+                  <div class="modal-body">
+                      <form id="">
+                          <div class="modal-body">
+                              <input type="hidden" name="action" value="deleteCategory">
+                              <div class="form-group">
+                                  <label for="category_id">Категория</label>
+                                  <select class="form-control category_id" name="category_id" id="category_id">
+                                  </select>
+                              </div>
+                          </div>
+                          <div class="modal-footer">
+                              <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрыть</button>
+                              <button type="submit" class="btn btn-primary">Удалить</button>
+                          </div>
+                      </form>
+                  </div>
+              </div>
+          </div>
+      </div>
+  
+      <div class="modal fade" id="editCategory" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+          <div class="modal-dialog modal-lg">
+              <div class="modal-content">
+                  <div class="modal-header">
+                      <h4 class="modal-title" id="myLargeModalLabel">Изменение категории</h4>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">×</span>
+                      </button>
+                  </div>
+                  <div class="modal-body">
+                      <form id="">
+                          <div class="modal-body">
+                              <input type="hidden" name="action" value="editCategory">
+                              <div class="form-group">
+                                  <label for="category_id">Категория</label>
+                                  <select class="form-control category_id" name="category_id" id="category_id">
+                                  </select>
+                              </div>
+                              <div class="form-group">
+                                  <label class="label" for="catrgoryName">Новое наименование</label>
+                                  <input type="text" required="required" name="catrgoryName" class="form-control" id="edit_catrgoryName">
+                              </div>
+                          </div>
+                          <div class="modal-footer">
+                              <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрыть</button>
+                              <button type="submit" class="btn btn-primary">Добавить</button>
+                          </div>
+                      </form>
+                  </div>
+              </div>
+          </div>
+      </div>
+  
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+          <a class="navbar-brand" href="#">Паттерны</a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav mr-auto">
+                  <li class="nav-item dropdown">
+                      <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Категории
+                      </a>
+                      <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                          <button class="dropdown-item" data-toggle="modal" data-action="add-category" data-target="#addCategory">Добавить категорию</button>
+                          <button class="dropdown-item" data-toggle="modal" data-action="edit-category" data-target="#editCategory">Изменить категорию</button>
+                          <button class="dropdown-item" data-toggle="modal" data-action="delete-category" data-target="#deleteCategory">Удалить категорию</button>
+                      </div>
+                  </li>
+                  <li class="nav-item dropdown">
+                      <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Шаблоны
+                      </a>
+                      <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                          <a class="dropdown-item" href="#" data-action="add-post" data-toggle="modal" data-target="#addPost">Добавить шаблон</a>
+                          <a class="dropdown-item edit" href="#" data-action="edit">Изменить шаблон</a>
+                          <a class="dropdown-item delete" href="#" data-action="delete">Удалить шаблон</a>
+                      </div>
+                  </li>
+              </ul>
+              <ul class="navbar-nav"><ul>
+          </div>
+      </nav>
+  
+      <div class="content pt-3" style="flex:1;">
+          <div class="container-fluid">
+              <div class="row">
+                  <div class="col-md-2">
+                      <div style="position: sticky; top: 10px;" class="sidebar"></div>
+                      <br>
+                  </div>
+                  <div class="col-md-9 ">
+                      <div class="jumbotron" style="background: rgb(238,174,202); background: linear-gradient(169deg, rgba(238,174,202,1) 25%, rgba(148,187,233,1) 100%);">
+                          <h1 class="title"></h1>
+                          <p class="description"></p>
+                      </div>
+                      <div class="control-box  main-content " style="margin-bottom: 15px;">
+                          <div class="card">
+                              <div class="card-header path" style="background: rgb(238,174,202); background: linear-gradient(169deg, rgba(238,174,202,1) 25%, rgba(148,187,233,1) 100%);"></div>
+                              <pre class="card-body code sh_php "></pre>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  
+      <footer class="page-footer font-small bg-dark ">
+          <div class="footer-copyright text-center py-3" style="color:#9A9DA0;">© 2020 Шаблоны проектирования by Ras FANtasy</div>
+      </footer>
+  </body>
+  <script type="text/javascript" src="js/main.js"></script>
+</html>
