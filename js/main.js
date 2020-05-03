@@ -20,7 +20,6 @@ $(document).ready(async function() {
             });
             html += '</div>';
         });
-        jQuery('.postlink').bind('click');
         $('.sidebar').html(html);
         return sidebar;
     }
