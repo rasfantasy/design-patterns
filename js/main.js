@@ -66,10 +66,10 @@ $(document).ready(async function() {
             case 'addCategory': {
                 let newitem = doc_data.length;
                 doc_data[newitem] = {};
-                doc_data[newitem]['header'] = data['catrgoryName'];
+                doc_data[newitem]['header'] = data['categoryName'];
                 sync();
                 $('#addCategory').modal('hide');
-                $(this).find('#catrgoryName').val('');
+                $(this).find('#categoryName').val('');
                 break;
             }
             case 'deleteCategory': {
@@ -80,7 +80,7 @@ $(document).ready(async function() {
                 break;
             }
             case 'editCategory': {
-                doc_data[parseInt(data['category_id'])]['header'] = data['catrgoryName'];
+                doc_data[parseInt(data['category_id'])]['header'] = data['categoryName'];
                 await sync();
                 doc_post = await postRender('0_0');
                 $('#editCategory').modal('hide');
