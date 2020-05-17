@@ -7,38 +7,45 @@ $(document).ready(async function() {
         let html = '';
         $('.category_id').html('');
         $.each(sidebar, function(key, val) {
-            html += `<div class="card mt-3">
-                  <div class="card-header bg-dark" >
-                  <h3 style="color:#9A9DA0;">` + val['header'] + `</h3>
-                  </div>`;
-            $('.category_id').append('<option value="' + key + '">' + val['header'] + '</option>');
+            html += `<details data-id="`+key+`" class="mt-3">
+                    <summary class="bg-dark" style="color:#9A9DA0;">` + val['header'] + `</summary>`;
+                    $('.category_id').append('<option value="' + key + '">' + val['header'] + '</option>');
 
             $.each(val['links'], function(key2, val2) {
                 html += `<div class="card-body">
                 <a class=" postlink" data-action="` + key + `_` + key2 + `" href="#">` + val2['title'] + `</a>
                   </div>`;
             });
-            html += '</div>';
+            html += '</details>';
         });
         $('.sidebar').html(html);
         return sidebar;
     }
 
+  
+
     async function postRender(action) {
         let docParrent = action.split('_')[0];
         let docChild = action.split('_')[1];
+
+        $('details').removeAttr('open');
+        $('details[data-id=' + docParrent + ']').attr('open', 'open');
         $('.postlink').removeClass('font-weight-bold');
         $('.postlink').removeClass('text-primary');
         $('.postlink[data-action=' + action + ']').addClass('text-primary');
         $('.postlink[data-action=' + action + ']').addClass('font-weight-bold');
-        $('.title').text(doc_data[docParrent]['links'][docChild]['title']);
-        $('.path').text(doc_data[docParrent]['links'][docChild]['data']['path']);
-        $('.code').html(doc_data[docParrent]['links'][docChild]['data']['code']);
-        $('.description').html(doc_data[docParrent]['links'][docChild]['data']['description'].replace(/\n/g, '<br/>'));
-        $('.edit').data('id', action);
-        $('.delete').data('id', action);
-        sh_highlightDocument();
-        return doc_data[docParrent]['links'][docChild]['data'];
+
+        $(".content-data").fadeOut(function() {
+            $('.title').text(doc_data[docParrent]['links'][docChild]['title']);
+            $('.path').text(doc_data[docParrent]['links'][docChild]['data']['path']);
+            $('.code').html(doc_data[docParrent]['links'][docChild]['data']['code']);
+            $('.description').html(doc_data[docParrent]['links'][docChild]['data']['description'].replace(/\n/g, '<br/>'));
+            $('.edit').data('id', action);
+            $('.delete').data('id', action);
+            $('.content-data').fadeIn( "slow" );
+            sh_highlightDocument();
+            return doc_data[docParrent]['links'][docChild]['data'];
+        });
     }
 
     async function getPost(action) {
@@ -74,14 +81,14 @@ $(document).ready(async function() {
             }
             case 'deleteCategory': {
                 doc_data.splice(parseInt(data['category_id']), 1);
-                await sync();
+                await sync(); 
                 doc_post = await postRender('0_0');
                 $('#deleteCategory').modal('hide');
                 break;
             }
             case 'editCategory': {
                 doc_data[parseInt(data['category_id'])]['header'] = data['categoryName'];
-                await sync();
+                await sync();           
                 doc_post = await postRender('0_0');
                 $('#editCategory').modal('hide');
                 $('#edit_catrgoryName').val('');
@@ -153,9 +160,10 @@ $(document).ready(async function() {
         return await response;
     }
 
-    $(".sidebar").on("click", ".postlink", function(e) {
+    $(".sidebar").on("click", ".postlink", async function(e) {
         e.preventDefault();
-        postRender($(this).data('action'));
+        await postRender($(this).data('action'));
+        $('.content-data').fadeIn( "slow" );
     });
 
     $('.edit').click(async function(e) {
@@ -173,4 +181,9 @@ $(document).ready(async function() {
         $('#deletePost').modal('show');
         $('#post_id').val($(this).data('id'));
     });
+
+    // $('details').click(function() {
+    //     $('details').removeAttr('open');
+    //     $('details[data-id=' + docParrent + ']').attr('open', 'open');
+    // });
 });
