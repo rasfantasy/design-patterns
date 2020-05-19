@@ -163,7 +163,6 @@ $(document).ready(async function() {
     $(".sidebar").on("click", ".postlink", async function(e) {
         e.preventDefault();
         await postRender($(this).data('action'));
-        $('.content-data').fadeIn( "slow" );
     });
 
     $('.edit').click(async function(e) {
