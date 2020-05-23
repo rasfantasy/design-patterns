@@ -3,7 +3,7 @@ $(document).ready(async function() {
     let doc_data = await loadJson();
     let doc_post;
 
-    var loc = window.location.search.replace("?","");
+    let loc = window.location.search.replace("?","");
     if (loc != ""){
         doc_post = await postRender(loc);
         
@@ -11,6 +11,15 @@ $(document).ready(async function() {
         doc_post = await postRender('0_0');
     }
 
+    $(window).on("popstate", async function(e) {
+        let loc = window.location.search.replace("?","");
+        if (loc != ""){
+            doc_post = await postRender(loc);
+            
+        } else {
+            doc_post = await postRender('0_0');
+        }
+    });
 
     async function loadJson() {
         let response = await fetch('data/data.json?nocache=' + (new Date()).getTime());
@@ -33,14 +42,9 @@ $(document).ready(async function() {
         return sidebar;
     }
 
-  
-
     async function postRender(action) {
         let docParrent = action.split('_')[0];
         let docChild = action.split('_')[1];
-
-
-        window.history.pushState("", "", window.location.pathname+"?"+action);
 
         $('details').removeAttr('open');
         $('details[data-id=' + docParrent + ']').attr('open', 'open');
@@ -176,6 +180,7 @@ $(document).ready(async function() {
 
     $(".sidebar").on("click", ".postlink", async function(e) {
         e.preventDefault();
+        window.history.pushState("", "", window.location.pathname+"?"+$(this).data('action'));
         $('.navbar-collapse').collapse('hide');
         await postRender($(this).data('action'));
     });
@@ -196,8 +201,5 @@ $(document).ready(async function() {
         $('#post_id').val($(this).data('id'));
     });
 
-    // $('details').click(function() {
-    //     $('details').removeAttr('open');
-    //     $('details[data-id=' + docParrent + ']').attr('open', 'open');
-    // });
+
 });
