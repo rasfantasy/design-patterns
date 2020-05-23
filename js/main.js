@@ -176,7 +176,7 @@ $(document).ready(async function() {
 
     $(".sidebar").on("click", ".postlink", async function(e) {
         e.preventDefault();
-        
+        $('.navbar-collapse').collapse('hide');
         await postRender($(this).data('action'));
     });
 
