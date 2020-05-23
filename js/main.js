@@ -1,6 +1,20 @@
 $(document).ready(async function() {
+
     let doc_data = await loadJson();
-    let doc_post = await postRender('0_0');
+    let doc_post;
+
+    var loc = window.location.hash.replace("#","");
+    if (loc != ""){
+        //var destination = $("#"+loc).offset().top-100 ;
+        //$("html").animate({ scrollTop: destination}, 1000 );
+        //$('#'+loc).click();
+        doc_post = await postRender(loc);
+        
+    } else {
+        doc_post = await postRender('0_0');
+    }
+
+
     async function loadJson() {
         let response = await fetch('data/data.json?nocache=' + (new Date()).getTime());
         let sidebar = await response.json();
@@ -27,7 +41,7 @@ $(document).ready(async function() {
     async function postRender(action) {
         let docParrent = action.split('_')[0];
         let docChild = action.split('_')[1];
-
+        window.history.pushState("", "", "/#"+action);
         $('details').removeAttr('open');
         $('details[data-id=' + docParrent + ']').attr('open', 'open');
         $('.postlink').removeClass('font-weight-bold');
@@ -162,6 +176,7 @@ $(document).ready(async function() {
 
     $(".sidebar").on("click", ".postlink", async function(e) {
         e.preventDefault();
+        
         await postRender($(this).data('action'));
     });
 

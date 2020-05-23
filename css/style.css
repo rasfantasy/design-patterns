@@ -1,5 +1,47 @@
+html {
+    scroll-behavior: smooth;
+  }
+  /* width */
+::-webkit-scrollbar {
+    width: 10px;
     
-    details {
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #343A40;
+  }
+  
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: linear-gradient(169deg, rgba(238,174,202,1) 25%, rgba(148,187,233,1) 100%);
+    border-radius: 5px;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(169deg, rgba(238,174,202,1) 25%, rgba(148,187,233,1) 100%);
+  }
+
+        .mobileHidden {
+            display: block;
+        }
+
+        .desktopHidden {
+            display: none;
+        }
+
+        @media only screen and (max-width: 990px) {
+            .mobileHidden {
+                display: none;
+            }
+
+            .desktopHidden {
+                display: block;
+            }
+        }
+
+        details {
             border: 1px solid #aaa;
             border-radius: 4px;
             padding: .5em .5em 0;
