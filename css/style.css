@@ -99,3 +99,60 @@ html {
         .path {
             background: rgb(238,174,202); background: linear-gradient(169deg, rgba(238,174,202,1) 25%, rgba(148,187,233,1) 100%);
         }
+
+.dark-control {
+    background-color: #333333;
+    color: #888888;
+    border: 1px solid #484848;
+}
+
+
+.dark-control:focus {
+    color: #888888;
+    background-color: #333333;
+    border-color: #B9B384;
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(185,179,132,.25);
+}
+
+.darklabel {
+    color:#B9B384;
+}
+
+.dark-modal-title {
+    color:#B9B384;
+}
+
+
+
+.btn-primary:hover {
+    color: #3a3a3a;
+    background-color: #B9B384;
+    border-color: #B9B384;
+}
+
+.btn-primary {
+    color: #3a3a3a;
+    background-color: #B9B384;
+    border-color: #B9B384;
+}
+
+::-webkit-resizer{ 
+  
+   background-color:#B9B384;
+}
+
+.dark-menu {
+    background: #333333;
+    border: 1px solid rgba(255, 247, 247, 0.35);
+}
+
+.dark-item{
+    color:#B9B384;
+}
+
+.dark-item:hover{
+    color:#333333;
+    background: #B9B384;
+  
+}

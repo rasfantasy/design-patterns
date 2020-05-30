@@ -33,7 +33,7 @@ $(document).ready(async function() {
 
             $.each(val['links'], function(key2, val2) {
                 html += `<div class="card-body">
-                <a class=" postlink" data-action="` + key + `_` + key2 + `" href="#">` + val2['title'] + `</a>
+                <a class=" postlink" style="color:#B9B384" data-action="` + key + `_` + key2 + `" href="#">` + val2['title'] + `</a>
                   </div>`;
             });
             html += '</details>';
@@ -49,8 +49,8 @@ $(document).ready(async function() {
         $('details').removeAttr('open');
         $('details[data-id=' + docParrent + ']').attr('open', 'open');
         $('.postlink').removeClass('font-weight-bold');
-        $('.postlink').removeClass('text-primary');
-        $('.postlink[data-action=' + action + ']').addClass('text-primary');
+      //  $('.postlink').removeClass('text-primary');
+      //  $('.postlink[data-action=' + action + ']').addClass('text-primary');
         $('.postlink[data-action=' + action + ']').addClass('font-weight-bold');
 
         $(".content-data").fadeOut(function() {

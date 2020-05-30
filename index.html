@@ -4,21 +4,20 @@
   	<title>Шаблоны проектирования</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
   	<link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/sh_style.css" rel="stylesheet">
     <link href="css/style.css?3" rel="stylesheet">
-    <link href="js/google-code-prettify/skins/desert.css" rel="stylesheet">
   	<script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
-  	<script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <link href="js/google-code-prettify/skins/desert.css" rel="stylesheet">
   	<script type="text/javascript" src="js/google-code-prettify/prettify.js"></script>
    
   </head>
-  <body style="min-height: 100vh;display: flex;flex-direction: column;">
+  <body style="min-height: 100vh;display: flex;flex-direction: column; background-color: #191919;">
   
       <div class="modal fade" id="editPost" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
           <div class="modal-dialog modal-lg">
-              <div class="modal-content">
-                  <div class="modal-header">
-                      <h4 class="modal-title" id="myLargeModalLabel">Изменить шаблон</h4>
+               <div class="modal-content" style="background-color: #333333;" >
+                  <div class="modal-header" style="border-bottom: 1px solid #B9B384;">
+                      <h4 class="modal-title dark-modal-title" id="myLargeModalLabel">Изменить шаблон</h4>
                       <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                           <span aria-hidden="true">×</span>
                       </button>
@@ -29,27 +28,27 @@
                               <input type="hidden" name="post_id" id="post_id_edit" required="required">
                               <input type="hidden" name="action" value="editPost">
                               <div class="form-group">
-                                  <label class="label" for="title">Наименование</label>
-                                  <input type="text" required="required" name="title" class="form-control" id="edit_title">
+                                  <label class="label darklabel" for="title">Наименование</label>
+                                  <input type="text" required="required" name="title" class="form-control dark-control" id="edit_title">
                               </div>
   
                               <div class="form-group">
-                                  <label class="label" for="path">Путь</label>
-                                  <input type="text" required="required" name="path" class="form-control" id="edit_path">
+                                  <label class="label darklabel" for="path">Путь</label>
+                                  <input type="text" required="required" name="path" class="form-control dark-control" id="edit_path">
                               </div>
   
                               <div class="form-group">
-                                  <label class="label" for="description">Описание</label>
-                                  <textarea required="required" style="height: 300px;" name="description" class="form-control" id="edit_description"></textarea>
+                                  <label class="label darklabel" for="description">Описание</label>
+                                  <textarea required="required" style="height: 300px;" name="description" class="form-control dark-control" id="edit_description"></textarea>
                               </div>
   
                               <div class="form-group">
-                                  <label class="label" for="code">Код</label>
-                                  <textarea required="required" style="height: 300px;" name="code" class="form-control" id="edit_code"></textarea>
+                                  <label class="label darklabel" for="code">Код</label>
+                                  <textarea required="required" style="height: 300px;" name="code" class="form-control dark-control" id="edit_code"></textarea>
                               </div>
   
                           </div>
-                          <div class="modal-footer">
+                          <div class="modal-footer" style="border-top: 1px solid #B9B384;">
                               <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрыть</button>
                               <button type="submit" class="btn btn-primary">Применить</button>
                           </div>
@@ -61,9 +60,9 @@
   
       <div class="modal fade" id="addPost" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
           <div class="modal-dialog modal-lg">
-              <div class="modal-content">
-                  <div class="modal-header">
-                      <h4 class="modal-title" id="myLargeModalLabel">Добавить шаблон</h4>
+               <div class="modal-content" style="background-color: #333333;" >
+                  <div class="modal-header" style="border-bottom: 1px solid #B9B384;">
+                      <h4 class="modal-title dark-modal-title" id="myLargeModalLabel">Добавить шаблон</h4>
                       <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                           <span aria-hidden="true">×</span>
                       </button>
@@ -73,31 +72,31 @@
                           <div class="modal-body">
                               <input type="hidden" name="action" value="addPost">
                               <div class="form-group">
-                                  <label for="category_id">Категория шаблона</label>
-                                  <select class="form-control category_id" name="category_id" id="category_id">
+                                  <label class="label darklabel" for="category_id">Категория шаблона</label>
+                                  <select class="form-control dark-control category_id" name="category_id" id="category_id">
                                   </select>
                               </div>
                               <div class="form-group">
-                                  <label class="label" for="title">Наименование</label>
-                                  <input type="text" required="required" name="title" class="form-control" id="title">
+                                  <label class="label darklabel" for="title">Наименование</label>
+                                  <input type="text" required="required" name="title" class="form-control dark-control" id="title">
                               </div>
   
                               <div class="form-group">
-                                  <label class="label" for="path">Путь</label>
-                                  <input type="text" required="required" name="path" class="form-control" id="path">
+                                  <label class="label darklabel" for="path">Путь</label>
+                                  <input type="text" required="required" name="path" class="form-control dark-control" id="path">
                               </div>
   
                               <div class="form-group">
-                                  <label class="label" for="description">Описание</label>
-                                  <textarea required="required" style="height: 300px;" name="description" class="form-control" id="description"></textarea>
+                                  <label class="label darklabel" for="description">Описание</label>
+                                  <textarea required="required" style="height: 300px;" name="description" class="form-control dark-control" id="description"></textarea>
                               </div>
   
                               <div class="form-group">
-                                  <label class="label" for="code">Код</label>
-                                  <textarea required="required" style="height: 300px;" name="code" class="form-control" id="code"></textarea>
+                                  <label class="label darklabel" for="code">Код</label>
+                                  <textarea required="required" style="height: 300px;" name="code" class="form-control dark-control" id="code"></textarea>
                               </div>
                           </div>
-                          <div class="modal-footer">
+                          <div class="modal-footer" style="border-top: 1px solid #B9B384;">
                               <button type="button" class="btn btn-secondary" data-dismiss="modal">Отмена</button>
                               <button type="submit" class="btn btn-primary">Добавить</button>
                           </div>
@@ -109,9 +108,9 @@
   
       <div class="modal fade" id="deletePost" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
           <div class="modal-dialog modal-lg">
-              <div class="modal-content">
-                  <div class="modal-header">
-                      <h4 class="modal-title" id="myLargeModalLabel">Удалить шаблон</h4>
+               <div class="modal-content" style="background-color: #333333;" >
+                  <div class="modal-header" style="border-bottom: 1px solid #B9B384;">
+                      <h4 class="modal-title dark-modal-title" id="myLargeModalLabel">Удалить шаблон</h4>
                       <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                           <span aria-hidden="true">×</span>
                       </button>
@@ -122,7 +121,7 @@
                               <input type="hidden" name="action" value="deletePost">
                               <input type="hidden" name="post_id" id="post_id" required="required"> Вы действительно хотите удалить шаблон?
                           </div>
-                          <div class="modal-footer">
+                          <div class="modal-footer" style="border-top: 1px solid #B9B384;">
                               <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрыть</button>
                               <button type="submit" class="btn btn-primary">Удалить</button>
                           </div>
@@ -134,9 +133,9 @@
   
       <div class="modal fade" id="addCategory" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
           <div class="modal-dialog modal-lg">
-              <div class="modal-content">
-                  <div class="modal-header">
-                      <h4 class="modal-title" id="myLargeModalLabel">Новая категория</h4>
+               <div class="modal-content" style="background-color: #333333;" >
+                  <div class="modal-header" style="border-bottom: 1px solid #B9B384;">
+                      <h4 class="modal-title dark-modal-title" id="myLargeModalLabel">Новая категория</h4>
                       <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                           <span aria-hidden="true">×</span>
                       </button>
@@ -146,11 +145,11 @@
                           <div class="modal-body">
                               <input type="hidden" name="action" value="addCategory">
                               <div class="form-group">
-                                  <label class="label" for="categoryName">Наименование</label>
-                                  <input type="text" required="required" name="categoryName" class="form-control" id="categoryName">
+                                  <label class="label darklabel" for="categoryName">Наименование</label>
+                                  <input type="text" required="required" name="categoryName" class="form-control dark-control" id="categoryName">
                               </div>
                           </div>
-                          <div class="modal-footer">
+                          <div class="modal-footer" style="border-top: 1px solid #B9B384;">
                               <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрыть</button>
                               <button type="submit" class="btn btn-primary">Добавить</button>
                           </div>
@@ -162,9 +161,9 @@
   
       <div class="modal fade" id="deleteCategory" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
           <div class="modal-dialog modal-lg">
-              <div class="modal-content">
-                  <div class="modal-header">
-                      <h4 class="modal-title" id="myLargeModalLabel">Удалить категорию</h4>
+               <div class="modal-content" style="background-color: #333333;" >
+                  <div class="modal-header" style="border-bottom: 1px solid #B9B384;">
+                      <h4 class="modal-title dark-modal-title" id="myLargeModalLabel">Удалить категорию</h4>
                       <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                           <span aria-hidden="true">×</span>
                       </button>
@@ -174,12 +173,12 @@
                           <div class="modal-body">
                               <input type="hidden" name="action" value="deleteCategory">
                               <div class="form-group">
-                                  <label for="category_id">Категория</label>
-                                  <select class="form-control category_id" name="category_id" id="category_id">
+                                  <label class="label darklabel" for="category_id">Категория</label>
+                                  <select class="form-control dark-control category_id" name="category_id" id="category_id">
                                   </select>
                               </div>
                           </div>
-                          <div class="modal-footer">
+                          <div class="modal-footer" style="border-top: 1px solid #B9B384;">
                               <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрыть</button>
                               <button type="submit" class="btn btn-primary">Удалить</button>
                           </div>
@@ -191,9 +190,9 @@
   
       <div class="modal fade" id="editCategory" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
           <div class="modal-dialog modal-lg">
-              <div class="modal-content">
-                  <div class="modal-header">
-                      <h4 class="modal-title" id="myLargeModalLabel">Изменение категории</h4>
+               <div class="modal-content" style="background-color: #333333;" >
+                  <div class="modal-header" style="border-bottom: 1px solid #B9B384;">
+                      <h4 class="modal-title dark-modal-title" id="myLargeModalLabel">Изменение категории</h4>
                       <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                           <span aria-hidden="true">×</span>
                       </button>
@@ -203,16 +202,16 @@
                           <div class="modal-body">
                               <input type="hidden" name="action" value="editCategory">
                               <div class="form-group">
-                                  <label for="category_id">Категория</label>
-                                  <select class="form-control category_id" name="category_id" id="category_id">
+                                  <label class="label darklabel"  for="category_id">Категория</label>
+                                  <select class="form-control dark-control category_id" name="category_id" id="category_id">
                                   </select>
                               </div>
                               <div class="form-group">
-                                  <label class="label" for="categoryName">Новое наименование</label>
-                                  <input type="text" required="required" name="categoryName" class="form-control" id="edit_catrgoryName">
+                                  <label class="label darklabel" for="categoryName">Новое наименование</label>
+                                  <input type="text" required="required" name="categoryName" class="form-control dark-control" id="edit_catrgoryName">
                               </div>
                           </div>
-                          <div class="modal-footer">
+                          <div class="modal-footer" style="border-top: 1px solid #B9B384;">
                               <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрыть</button>
                               <button type="submit" class="btn btn-primary">Применить</button>
                           </div>
@@ -233,20 +232,20 @@
                       <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Категории
                       </a>
-                      <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                          <button class="dropdown-item" data-toggle="modal" data-action="add-category" data-target="#addCategory">Добавить категорию</button>
-                          <button class="dropdown-item" data-toggle="modal" data-action="edit-category" data-target="#editCategory">Изменить категорию</button>
-                          <button class="dropdown-item" data-toggle="modal" data-action="delete-category" data-target="#deleteCategory">Удалить категорию</button>
+                      <div class="dropdown-menu dark-menu" aria-labelledby="navbarDropdownMenuLink">
+                          <button class="dropdown-item dark-item" data-toggle="modal" data-action="add-category" data-target="#addCategory">Добавить категорию</button>
+                          <button class="dropdown-item dark-item" data-toggle="modal" data-action="edit-category" data-target="#editCategory">Изменить категорию</button>
+                          <button class="dropdown-item dark-item" data-toggle="modal" data-action="delete-category" data-target="#deleteCategory">Удалить категорию</button>
                       </div>
                   </li>
                   <li class="nav-item dropdown">
                       <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Шаблоны
                       </a>
-                      <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                          <a class="dropdown-item" href="#" data-action="add-post" data-toggle="modal" data-target="#addPost">Добавить шаблон</a>
-                          <a class="dropdown-item edit" href="#" data-action="edit">Изменить шаблон</a>
-                          <a class="dropdown-item delete" href="#" data-action="delete">Удалить шаблон</a>
+                      <div class="dropdown-menu dark-menu" aria-labelledby="navbarDropdownMenuLink">
+                          <a class="dropdown-item dark-item" href="#" data-action="add-post" data-toggle="modal" data-target="#addPost">Добавить шаблон</a>
+                          <a class="dropdown-item dark-item edit" href="#" data-action="edit">Изменить шаблон</a>
+                          <a class="dropdown-item dark-item delete" href="#" data-action="delete">Удалить шаблон</a>
                       </div>
                   </li>
                   <li>
@@ -270,7 +269,7 @@
                           <p class="description"></p>
                       </div>
                       <div class="control-box  main-content " style="margin-bottom: 15px;">
-                          <div class="card">
+                          <div class="card" style="background-color: #191919">
                               <div class="card-header path"></div>
                               <pre class="card-body code prettyprint "></pre>
                           </div>
