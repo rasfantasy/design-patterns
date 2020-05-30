@@ -28,7 +28,7 @@ $(document).ready(async function() {
         $('.category_id').html('');
         $.each(sidebar, function(key, val) {
             html += `<details data-id="`+key+`" class="mt-3">
-                    <summary class="bg-dark" style="color:#9A9DA0;">` + val['header'] + `</summary>`;
+                    <summary class="" style="background-color: #333333; color:#9A9DA0;">` + val['header'] + `</summary>`;
                     $('.category_id').append('<option value="' + key + '">' + val['header'] + '</option>');
 
             $.each(val['links'], function(key2, val2) {
@@ -61,7 +61,9 @@ $(document).ready(async function() {
             $('.edit').data('id', action);
             $('.delete').data('id', action);
             $('.content-data').fadeIn( "slow" );
-            sh_highlightDocument();
+            $('.code').removeClass("prettyprinted");
+
+            PR.prettyPrint();
             return doc_data[docParrent]['links'][docChild]['data'];
         });
     }
