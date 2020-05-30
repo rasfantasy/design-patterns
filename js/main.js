@@ -27,8 +27,8 @@ $(document).ready(async function() {
         let html = '';
         $('.category_id').html('');
         $.each(sidebar, function(key, val) {
-            html += `<details data-id="`+key+`" class="mt-3">
-                    <summary class="" style="background-color: #333333; color:#9A9DA0;">` + val['header'] + `</summary>`;
+            html += `<details style="border: 1px solid rgba(255, 247, 247, 0.35);" data-id="`+key+`" class="mt-3">
+                    <summary class="" style="border-radius: 4px; background-color: #333333; color:#9A9DA0;">` + val['header'] + `</summary>`;
                     $('.category_id').append('<option value="' + key + '">' + val['header'] + '</option>');
 
             $.each(val['links'], function(key2, val2) {
