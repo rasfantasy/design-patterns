@@ -33,7 +33,7 @@ $(document).ready(async function() {
 
             $.each(val['links'], function(key2, val2) {
                 html += `<div class="card-body">
-                <a class=" postlink" style="color:#B9B384" data-action="` + key + `_` + key2 + `" href="#">` + val2['title'] + `</a>
+                <a class=" postlink" style="color:#B9B384; word-break: break-word;" data-action="` + key + `_` + key2 + `" href="#">` + val2['title'] + `</a>
                   </div>`;
             });
             html += '</details>';
