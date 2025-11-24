@@ -4,7 +4,7 @@
   	<title>Обучающие материалы</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
   	<link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/style.css?6" rel="stylesheet">
+    <link href="css/style.css?7" rel="stylesheet">
   	<script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
     <script type="text/javascript" src="js/bootstrap.min.js"></script>
     <link href="js/google-code-prettify/skins/desert.css" rel="stylesheet">
@@ -13,6 +13,20 @@
   </head>
   <body style="min-height: 100vh;display: flex;flex-direction: column; background-color: #191919;">
   
+		<div class="modal fade" id="imageModal" tabindex="-1">
+		  <div class="modal-dialog modal-dialog-centered modal-lg">
+			<div class="modal-content">
+			 <div class="modal-header p-0 border-0">
+        <button type="button" class="close ml-auto mr-2 mt-2" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true" style="font-size: 2rem;">&times;</span>
+        </button>
+      </div>
+			  <div class="modal-body p-0">
+				<img id="modalImage" src="" class="w-100" />
+			  </div>
+			</div>
+		  </div>
+		</div>
       <div class="modal fade" id="editPost" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
           <div class="modal-dialog modal-lg">
                <div class="modal-content" style="background-color: #333333;" >
@@ -283,6 +297,12 @@
           <div class="footer-copyright text-center py-3" style="color:#9A9DA0;">© 2020-2025 Обучающие материалы by Ras FANtasy</div>
       </footer>
   </body>
-  <script type="text/javascript" src="js/main.js?20"></script>
+  <script type="text/javascript" src="js/main.js?21"></script>
+  <script>
+	function showImage(src) {
+		document.getElementById('modalImage').src = src;
+		 $('#imageModal').modal('show');
+	}
+</script>
   
 </html>

@@ -43,6 +43,27 @@ $(document).ready(async function() {
         $('.sidebar').html(html);
         return sidebar;
     }
+	
+	function enhanceImages(item) {
+		const parser = new DOMParser();
+		const doc = parser.parseFromString(item, "text/html");
+
+		const imgs = doc.querySelectorAll("img");
+
+		imgs.forEach(img => {
+			
+			img.setAttribute("data-target", "#imageModal");
+			img.setAttribute("onclick", "showImage(this.src)");
+			img.setAttribute("onclick", "showImage(this.src)");
+			img.style.cursor = "pointer";
+			img.style.maxWidth = "500px";
+			img.style.maxHeight  = "400px";
+		});
+
+		return doc.body.innerHTML;
+	}
+	
+	
 
     async function postRender(action) {
         let docParrent = action.split('_')[0];
@@ -59,6 +80,7 @@ $(document).ready(async function() {
             $('.title').text(doc_data[docParrent]['links'][docChild]['title']);
             $('.path').text(doc_data[docParrent]['links'][docChild]['data']['path']);
             $('.code').html(doc_data[docParrent]['links'][docChild]['data']['code']);
+			doc_data[docParrent]['links'][docChild]['data']['description'] = enhanceImages(doc_data[docParrent]['links'][docChild]['data']['description']);
             $('.description').html(doc_data[docParrent]['links'][docChild]['data']['description'].replace(/\n/g, '<br/>'));
             $('.edit').data('id', action);
             $('.delete').data('id', action);

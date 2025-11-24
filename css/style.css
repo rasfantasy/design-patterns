@@ -6,6 +6,32 @@ img {
 	border-radius: 5px !important;
 }
 
+.title {
+	word-break: break-word;
+}
+
+#imageModal .modal-dialog {
+	min-width: 90vw;
+}
+#imageModal .modal-body {
+    padding: 0 !important;
+    text-align: center;
+	
+}
+
+#modalImage {
+    width: 100%;
+    height: auto;
+    max-height: 90vh; /* чтобы вписать в экран */
+    object-fit: contain; /* корректное масштабирование */
+}
+
+@media (max-width: 768px) {
+	.description img {
+		max-width: 80vw !important;
+	}
+}
+
   /* width */
 ::-webkit-scrollbar {
     width: 10px;
