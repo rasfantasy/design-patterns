@@ -1,6 +1,11 @@
 html {
     scroll-behavior: smooth;
   }
+
+img {
+	border-radius: 5px !important;
+}
+
   /* width */
 ::-webkit-scrollbar {
     width: 10px;
@@ -99,6 +104,8 @@ html {
         .path {
             background: rgb(238,174,202); background: linear-gradient(169deg, rgba(238,174,202,1) 25%, rgba(148,187,233,1) 100%);
         }
+
+
 
 .dark-control {
     background-color: #333333;

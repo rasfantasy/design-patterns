@@ -20,6 +20,8 @@ $(document).ready(async function() {
             doc_post = await postRender('0_0');
         }
     });
+	
+	if(window.location.origin.indexOf("github") != -1) $('#navbarSupportedContent').css('visibility', 'hidden');
 
     async function loadJson() {
         let response = await fetch('data/data.json?nocache=' + (new Date()).getTime());
