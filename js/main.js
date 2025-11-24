@@ -21,7 +21,7 @@ $(document).ready(async function() {
         }
     });
 	
-	if(window.location.origin.indexOf("github") != -1) $('#navbarSupportedContent').css('visibility', 'hidden');
+	if(window.location.origin.indexOf("github") != -1) $('.navbarCRUD').css('visibility', 'hidden');
 
     async function loadJson() {
         let response = await fetch('data/data.json?nocache=' + (new Date()).getTime());
@@ -68,6 +68,7 @@ $(document).ready(async function() {
             PR.prettyPrint();
             return doc_data[docParrent]['links'][docChild]['data'];
         });
+		$('html, body').animate({scrollTop: 0}, 500);
     }
 
     async function getPost(action) {
