@@ -32,6 +32,36 @@ img {
 	}
 }
 
+.description {
+	word-break: break-word;
+}
+
+.path {
+	word-break: break-word;
+}
+
+
+@media (min-width: 992px) {
+	details {
+		max-height: 40vh;
+		overflow: auto;
+		
+		position: relative;
+		min-height: 40px;
+	}
+
+	summary {
+		position: sticky;
+		/*width: 100%;*/
+		top: -8px;
+		left: 0px;
+	}
+}
+
+
+	
+	
+
   /* width */
 ::-webkit-scrollbar {
     width: 10px;
