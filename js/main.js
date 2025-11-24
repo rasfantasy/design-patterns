@@ -66,6 +66,19 @@ $(document).ready(async function() {
             $('.code').removeClass("prettyprinted");
 
             PR.prettyPrint();
+			
+			if(doc_data[docParrent]['links'][docChild]['data']['path'].length <= 1) {
+				$('.path').css('visibility', 'hidden')
+			} else {
+				$('.path').css('visibility', 'visible')
+			}
+			
+			if(doc_data[docParrent]['links'][docChild]['data']['code'].length <= 1) {
+				$('.code').css('visibility', 'hidden')
+			} else {
+				$('.code').css('visibility', 'visible')
+			}
+			
             return doc_data[docParrent]['links'][docChild]['data'];
         });
 		$('html, body').animate({scrollTop: 0}, 500);
