@@ -54,10 +54,11 @@ $(document).ready(async function() {
 			
 			img.setAttribute("data-target", "#imageModal");
 			img.setAttribute("onclick", "showImage(this.src)");
-			img.setAttribute("onclick", "showImage(this.src)");
 			img.style.cursor = "pointer";
 			img.style.maxWidth = "500px";
 			img.style.maxHeight  = "400px";
+			img.style.objectFit  = "fill;";
+			img.classList.add("mx-auto", "d-block");
 		});
 
 		return doc.body.innerHTML;

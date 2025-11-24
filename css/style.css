@@ -22,7 +22,7 @@ img {
 #modalImage {
     width: 100%;
     height: auto;
-    max-height: 90vh; /* чтобы вписать в экран */
+    max-height: 83vh;
     object-fit: contain; /* корректное масштабирование */
 }
 
