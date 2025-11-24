@@ -91,14 +91,19 @@ $(document).ready(async function() {
 			
 			if(doc_data[docParrent]['links'][docChild]['data']['path'].length <= 1) {
 				$('.path').css('visibility', 'hidden')
+				$('.main-content').css('display', 'none')
+				
 			} else {
 				$('.path').css('visibility', 'visible')
+				$('.main-content').css('display', 'block')
 			}
 			
 			if(doc_data[docParrent]['links'][docChild]['data']['code'].length <= 1) {
 				$('.code').css('visibility', 'hidden')
+				$('.main-content').css('display', 'none')
 			} else {
 				$('.code').css('visibility', 'visible')
+				$('.main-content').css('display', 'block')
 			}
 			
             return doc_data[docParrent]['links'][docChild]['data'];
