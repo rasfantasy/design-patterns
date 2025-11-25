@@ -1,3 +1,4 @@
+/* Global Style */
 html {
     scroll-behavior: smooth;
   }
@@ -6,6 +7,30 @@ img {
 	border-radius: 5px !important;
 }
 
+details {
+    border: 1px solid #aaa;
+    border-radius: 4px;
+    padding: .5em .5em 0;
+    transition: 0.5s all;
+
+}
+
+summary {
+    font-weight: bold;
+    margin: -.5em -.5em 0;
+    padding: .5em;
+}
+
+details[open] {
+    padding: .5em;
+}
+
+details[open] summary {
+    border-bottom: 1px solid #aaa;
+    margin-bottom: .5em;
+}
+
+/* Other Styles */
 .title {
 	word-break: break-word;
 }
@@ -23,144 +48,43 @@ img {
     width: 100%;
     height: auto;
     max-height: 83vh;
-    object-fit: contain; /* корректное масштабирование */
+    object-fit: contain; 
 }
 
-@media (max-width: 768px) {
-	.description img {
-		max-width: 80vw !important;
-	}
-}
+
 
 .description {
 	word-break: break-word;
+}
+
+.description details {
+	background-color: #ffffff38;
+}
+
+.description summary {
+	background-color: #c7accf;
+}
+
+
+.description ::-webkit-scrollbar-track {
+  background-color: rgba(0,0,0,0);
+}
+
+.description details[open] {
+	min-height: 70vh !important;
 }
 
 .path {
 	word-break: break-word;
 }
 
-
-@media (min-width: 992px) {
-	details {
-		max-height: 40vh;
-		overflow: auto;
-		
-		position: relative;
-		min-height: 40px;
-	}
-
-	summary {
-		position: sticky;
-		/*width: 100%;*/
-		top: -8px;
-		left: 0px;
-	}
+.header {
+    background: rgb(238,174,202); background: linear-gradient(169deg, rgba(238,174,202,1) 25%, rgba(148,187,233,1) 100%);
 }
 
-
-	
-	
-
-  /* width */
-::-webkit-scrollbar {
-    width: 10px;
-    
-  }
-  
-  /* Track */
-  ::-webkit-scrollbar-track {
-    background: #333333;
-  }
-  
-  /* Handle */
-  ::-webkit-scrollbar-thumb {
-    background: linear-gradient(169deg, rgba(238,174,202,1) 25%, rgba(148,187,233,1) 100%);
-    border-radius: 5px;
-  }
-  
-  /* Handle on hover */
-  ::-webkit-scrollbar-thumb:hover {
-    background: linear-gradient(169deg, rgba(238,174,202,1) 25%, rgba(148,187,233,1) 100%);
-  }
-
-        .mobileHidden {
-            display: block;
-        }
-
-        .desktopHidden {
-            display: none;
-        }
-
-        @media only screen and (max-width: 990px) {
-            .mobileHidden {
-                display: none;
-            }
-
-            .desktopHidden {
-                display: block;
-            }
-        }
-
-        details {
-            border: 1px solid #aaa;
-            border-radius: 4px;
-            padding: .5em .5em 0;
-            transition: 0.5s all;
-
-        }
-        details[open] SUMMARY~* {
-            animation: sweepin .5s ease-in-out;
-        }
-        details:not([open]) SUMMARY~* {
-            animation: sweepout .5s ease-in-out;
-        }
-
-        @keyframes sweepin {
-            0% {
-                opacity: 0;
-                margin-left: -10px
-            }
-            100% {
-                opacity: 1;
-                margin-left: 0px
-            }
-        }
-
-        @keyframes sweepout {
-            0% {
-                opacity: 1;
-                margin-left: 0px
-            }
-            100% {
-                opacity: 0;
-                margin-left: -10px
-            }
-        }
-        summary {
-            font-weight: bold;
-            margin: -.5em -.5em 0;
-            padding: .5em;
-        }
-
-        details[open] {
-            padding: .5em;
-        }
-
-        details[open] summary {
-            border-bottom: 1px solid #aaa;
-            margin-bottom: .5em;
-        }
-
-
-        .header {
-            background: rgb(238,174,202); background: linear-gradient(169deg, rgba(238,174,202,1) 25%, rgba(148,187,233,1) 100%);
-        }
-
-        .path {
-            background: rgb(238,174,202); background: linear-gradient(169deg, rgba(238,174,202,1) 25%, rgba(148,187,233,1) 100%);
-        }
-
+.path {
+    background: rgb(238,174,202); background: linear-gradient(169deg, rgba(238,174,202,1) 25%, rgba(148,187,233,1) 100%);
+}
 
 
 .dark-control {
@@ -168,7 +92,6 @@ img {
     color: #888888;
     border: 1px solid #484848;
 }
-
 
 .dark-control:focus {
     color: #888888;
@@ -186,8 +109,6 @@ img {
     color:#B9B384;
 }
 
-
-
 .btn-primary:hover {
     color: #3a3a3a;
     background-color: #B9B384;
@@ -200,10 +121,6 @@ img {
     border-color: #B9B384;
 }
 
-::-webkit-resizer{ 
-  
-   background-color:#B9B384;
-}
 
 .dark-menu {
     background: #333333;
@@ -218,4 +135,105 @@ img {
     color:#333333;
     background: #B9B384;
   
+}
+
+/* Rule Mobile & PC */
+.mobileHidden {
+    display: block;
+}
+
+.desktopHidden {
+    display: none;
+}
+/* Rule Only PC */
+@media only screen and (max-width: 990px) {
+    .mobileHidden {
+        display: none;
+    }
+
+    .desktopHidden {
+        display: block;
+    }
+}
+@media (min-width: 992px) {
+	details {
+		max-height: 40vh;
+		overflow: auto;
+		
+		position: relative;
+		min-height: 40px;
+	}
+
+	summary {
+		position: sticky;
+		/*width: 100%;*/
+		top: -8px;
+		left: 0px;
+	}
+}
+/* Rule Only Mobile */
+@media (max-width: 768px) {
+	.description img {
+		max-width: 80vw !important;
+	}
+}
+
+
+/* Animations */
+details[open] SUMMARY~* {
+    animation: sweepin .5s ease-in-out;
+}
+details:not([open]) SUMMARY~* {
+    animation: sweepout .5s ease-in-out;
+}
+
+@keyframes sweepout {
+    0% {
+        opacity: 1;
+        margin-left: 0px
+    }
+    100% {
+        opacity: 0;
+        margin-left: -10px
+    }
+}
+
+@keyframes sweepin {
+    0% {
+        opacity: 0;
+        margin-left: -10px
+    }
+    100% {
+        opacity: 1;
+        margin-left: 0px
+    }
+}
+
+/* Scroll bar */
+  /* width */
+::-webkit-scrollbar {
+  width: 10px;
+  
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #333333;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(169deg, rgba(238,174,202,1) 25%, rgba(148,187,233,1) 100%);
+  border-radius: 5px;
+  cursor: move;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(169deg, rgba(238,174,202,1) 25%, rgba(148,187,233,1) 100%);
+}
+
+::-webkit-resizer{ 
+  
+   background-color:#B9B384;
 }
